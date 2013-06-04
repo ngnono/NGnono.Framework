@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC5AC3E2-09F3-4682-AB40-7A70BC4430C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGnono.Framework</RootNamespace>
+    <AssemblyName>NGnono.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EFCachingProvider">
+      <HintPath>..\_dll\EFCachingProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EFCachingProvider.Web">
+      <HintPath>..\_dll\EFCachingProvider.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="EFProviderWrapperToolkit">
+      <HintPath>..\_dll\EFProviderWrapperToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EFTracingProvider">
+      <HintPath>..\_dll\EFTracingProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EmitMapper">
+      <HintPath>..\_dll\EmitMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dll\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\_dll\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\_dll\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\_dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dll\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dll\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dll\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dll\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_dll\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Ninject">
+      <HintPath>..\_dll\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Renative.Framework">
+      <HintPath>..\_dll\Renative.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\AspNetCacheProvider.cs" />
+    <Compile Include="Caching\BaseCacheProvider.cs" />
+    <Compile Include="Caching\CachingFactory.cs" />
+    <Compile Include="Caching\CachingHelper.cs" />
+    <Compile Include="Caching\CachingManager.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Caching\NoCacheProvider.cs" />
+    <Compile Include="Configuraton\ConfigManager.cs" />
+    <Compile Include="Data\EF\EFRepository.cs" />
+    <Compile Include="Data\EF\EFTracingUtil.cs" />
+    <Compile Include="Data\EF\IEFRepository.cs" />
+    <Compile Include="Data\EF\IUnitOfWork.cs" />
+    <Compile Include="Data\EF\PredicateBuilder.cs" />
+    <Compile Include="Define.cs" />
+    <Compile Include="DefineRestfulMethod.cs" />
+    <Compile Include="ExceptionUtils.cs" />
+    <Compile Include="Extension\EnumExtension.cs" />
+    <Compile Include="Extension\JsonExtension.cs" />
+    <Compile Include="Extension\MemberInfoExtension.cs" />
+    <Compile Include="Extension\ObjectExtension.cs" />
+    <Compile Include="GenerateUnique.cs" />
+    <Compile Include="Helper\CoordinatePositioningHelper.cs" />
+    <Compile Include="Helper\Util.cs" />
+    <Compile Include="Logger\ConsoleLog.cs" />
+    <Compile Include="Logger\ILog.cs" />
+    <Compile Include="Logger\Log4NetLog.cs" />
+    <Compile Include="Logger\LoggerManager.cs" />
+    <Compile Include="Mapping\DataReaderMappingRunner.cs" />
+    <Compile Include="Mapping\DefaultConfigurationProvider.cs" />
+    <Compile Include="Mapping\FieldMappingResolver.cs" />
+    <Compile Include="Mapping\IConfigurationProvider.cs" />
+    <Compile Include="Mapping\IMappingEngine.cs" />
+    <Compile Include="Mapping\IMappingResolver.cs" />
+    <Compile Include="Mapping\IMappingRunner.cs" />
+    <Compile Include="Mapping\Mapper.cs" />
+    <Compile Include="Mapping\MapperRegistry.cs" />
+    <Compile Include="Mapping\MappingAttribute.cs" />
+    <Compile Include="Mapping\MappingBuilder.cs" />
+    <Compile Include="Mapping\MappingEngine.cs" />
+    <Compile Include="Mapping\MemberInfoExtensions.cs" />
+    <Compile Include="Mapping\PlainObjectMappingRunner.cs" />
+    <Compile Include="Mapping\PropertyMappingResolver.cs" />
+    <Compile Include="Mapping\ResolutionContext.cs" />
+    <Compile Include="Mapping\ResolutionResult.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\ContentType.cs" />
+    <Compile Include="Models\CoordinateInfo.cs" />
+    <Compile Include="Models\DateTimeRangeInfo.cs" />
+    <Compile Include="Models\DegreeMinuteSecondInfo.cs" />
+    <Compile Include="Models\DomainModel.cs" />
+    <Compile Include="Models\ExecuteResult.cs" />
+    <Compile Include="Models\PagerInfo.cs" />
+    <Compile Include="Models\ResourceType.cs" />
+    <Compile Include="Models\StatusCode.cs" />
+    <Compile Include="Models\Timestamp.cs" />
+    <Compile Include="Models\BaseViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegularDefine.cs" />
+    <Compile Include="Security\Cryptography\CryptoHelper.cs" />
+    <Compile Include="Security\Cryptography\Hash\HashHelper.cs" />
+    <Compile Include="Security\Cryptography\Hash\MD5.cs" />
+    <Compile Include="Security\Cryptography\Hash\SHA.cs" />
+    <Compile Include="ServiceLocation\Adapter\PerRequestUnityServiceLocator.cs" />
+    <Compile Include="ServiceLocation\Adapter\NinjectServiceLocator.cs" />
+    <Compile Include="ServiceLocation\Adapter\UnityServiceLocator.cs" />
+    <Compile Include="ServiceLocation\Adapter\WindsorServiceLocator.cs" />
+    <Compile Include="ServiceLocation\IServiceLocator.cs" />
+    <Compile Include="ServiceLocation\ServiceEventArgs.cs" />
+    <Compile Include="ServiceLocation\ServiceLocator.cs" />
+    <Compile Include="ServiceLocation\ServiceLocatorBase.cs" />
+    <Compile Include="ServiceLocation\ServiceLocatorProvider.cs" />
+    <Compile Include="Utility\HtmlToText.cs" />
+    <Compile Include="Utility\Utils.cs" />
+    <Compile Include="Web\HttpModules\GlobalErrorHandlerModule.cs" />
+    <Compile Include="Web\HttpModules\RequestLogginHttpModule.cs" />
+    <Compile Include="Web\Mvc\ActionResults\RestfulResult.cs" />
+    <Compile Include="Web\Mvc\Attributes\DataServiceAttribute.cs" />
+    <Compile Include="Web\Mvc\Attributes\DefaultHandleErrorAttribute.cs" />
+    <Compile Include="Web\Mvc\Attributes\ValidParmeterAttribute.cs" />
+    <Compile Include="Web\Mvc\Binders\ModelBinderBase.cs" />
+    <Compile Include="Web\Mvc\Binders\UseBinderAttribute.cs" />
+    <Compile Include="Web\Mvc\Controllers\BaseController.cs" />
+    <Compile Include="Web\Mvc\Controllers\CustomerBaseController.cs" />
+    <Compile Include="Web\Mvc\Controllers\RestfulController.cs" />
+    <Compile Include="Web\Mvc\Ioc\IocDependencyResolver.cs" />
+    <Compile Include="Web\Mvc\IRequestParameterHandler.cs" />
+    <Compile Include="Web\Mvc\Routes\LowerCaseUrlRoute.cs" />
+    <Compile Include="Web\WebExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Security\Contract\" />
+    <Folder Include="Security\Impl\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

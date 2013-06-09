@@ -1,19 +1,18 @@
 ﻿using System;
+using NGnono.Framework.Caching.Provider;
 using NGnono.Framework.Configuraton;
 
 namespace NGnono.Framework.Caching
 {
-    public interface ICachingFactory
-    {
-        ICache Create();
-    }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class CachingFactory : ICachingFactory
     {
         private ICache _caches;
         private readonly object _syncObj = new object();
 
-        public virtual ICache Create()
+        ICache ICachingFactory.Create()
         {
             if (_caches == null)
             {
@@ -39,6 +38,11 @@ namespace NGnono.Framework.Caching
             }
 
             return _caches;
+        }
+
+        void ICachingFactory.Set(ICache provider)
+        {
+            _caches = provider;
         }
     }
 }

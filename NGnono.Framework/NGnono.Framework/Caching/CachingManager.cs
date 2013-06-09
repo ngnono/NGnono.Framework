@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace NGnono.Framework.Caching
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CachingManager : ICache
     {
         private static readonly CachingManager Instance = new CachingManager();
@@ -20,6 +23,9 @@ namespace NGnono.Framework.Caching
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static CachingManager Current
         {
             get { return Instance; }

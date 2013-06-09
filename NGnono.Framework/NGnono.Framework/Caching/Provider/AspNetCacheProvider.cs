@@ -6,9 +6,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Caching;
-using NGnono.Framework.Helper;
 
-namespace NGnono.Framework.Caching
+namespace NGnono.Framework.Caching.Provider
 {
     /// <summary>
     /// Implementation of <see cref="ICache"/> which works with ASP.NET cache object.

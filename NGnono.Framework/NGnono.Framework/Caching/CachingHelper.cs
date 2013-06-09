@@ -120,11 +120,24 @@ namespace NGnono.Framework.Caching
             Insert(key, obj, dep, MinuteFactor);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="obj"></param>
+        /// <param name="seconds"></param>
         public static void Insert(string key, object obj, int seconds)
         {
             Insert(key, obj, null, seconds);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="obj"></param>
+        /// <param name="dep"></param>
+        /// <param name="seconds"></param>
         public static void Insert(string key, object obj, IEnumerable<string> dep, int seconds)
         {
             Insert(key, obj, dep, seconds, CacheItemPriority.Normal);

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NGnono.Framework.Caching
+namespace NGnono.Framework.Caching.Provider
 {
     internal class NoCacheProvider : BaseCacheProvider
     {

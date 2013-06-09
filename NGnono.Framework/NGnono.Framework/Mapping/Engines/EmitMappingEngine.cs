@@ -2,6 +2,9 @@ using EmitMapper;
 
 namespace NGnono.Framework.Mapping.Engines
 {
+    /// <summary>
+    /// http://emitmapper.codeplex.com/
+    /// </summary>
     internal class EmitMappingEngine : IMappingEngine
     {
         private static readonly ObjectMapperManager EmitMapper = ObjectMapperManager.DefaultInstance;

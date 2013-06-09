@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace NGnono.Framework.Mapping
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class Mapper : IMapper
     {
         #region fields

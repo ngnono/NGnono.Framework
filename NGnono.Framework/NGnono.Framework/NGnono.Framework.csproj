@@ -98,14 +98,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caching\AspNetCacheProvider.cs" />
-    <Compile Include="Caching\BaseCacheProvider.cs" />
+    <Compile Include="Caching\ICachingFactory.cs" />
+    <Compile Include="Caching\Provider\AspNetCacheProvider.cs" />
+    <Compile Include="Caching\Provider\BaseCacheProvider.cs" />
     <Compile Include="Caching\CachingFactory.cs" />
     <Compile Include="Caching\CachingHelper.cs" />
     <Compile Include="Caching\CachingManager.cs" />
     <Compile Include="Caching\ICache.cs" />
-    <Compile Include="Caching\NoCacheProvider.cs" />
-    <Compile Include="Configuraton\ConfigManager.cs" />
+    <Compile Include="Caching\Provider\NoCacheProvider.cs" />
+    <Compile Include="Caching\CachingConfig.cs" />
     <Compile Include="Data\EF\EFRepository.cs" />
     <Compile Include="Data\EF\EFTracingUtil.cs" />
     <Compile Include="Data\EF\IEFRepository.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Web\WebExtension.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Configuraton\" />
     <Folder Include="Security\Contract\" />
     <Folder Include="Security\Impl\" />
   </ItemGroup>

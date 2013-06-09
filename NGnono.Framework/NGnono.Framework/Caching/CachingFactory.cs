@@ -1,6 +1,5 @@
 ﻿using System;
 using NGnono.Framework.Caching.Provider;
-using NGnono.Framework.Configuraton;
 
 namespace NGnono.Framework.Caching
 {
@@ -20,7 +19,7 @@ namespace NGnono.Framework.Caching
                 {
                     if (_caches == null)
                     {
-                        var assemblyName = ConfigManager.GetCacheProvider();
+                        var assemblyName = CachingConfig.GetCacheProvider();
                         if (String.IsNullOrWhiteSpace(assemblyName))
                         {
                             _caches = new NoCacheProvider();

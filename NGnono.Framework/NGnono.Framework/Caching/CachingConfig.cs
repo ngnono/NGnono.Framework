@@ -1,20 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
 
-namespace NGnono.Framework.Configuraton
+namespace NGnono.Framework.Caching
 {
-    public class ConfigManager
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CachingConfig
     {
         private const string CachingProvider = "CacheProvider";
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static bool IsCloseService
         {
             get { return Boolean.Parse(GetAppkey(Define.IsCloseService)); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static bool IsEnableSign
         {
             get { return Boolean.Parse(GetAppkey(Define.IsEnableSign)); }

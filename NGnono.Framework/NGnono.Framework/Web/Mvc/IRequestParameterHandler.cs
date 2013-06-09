@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using NGnono.Framework.Configuraton;
+using NGnono.Framework.Caching;
 using NGnono.Framework.Models;
 using NGnono.Framework.Web.Mvc.ActionResults;
 using System.Linq;
@@ -88,7 +88,7 @@ namespace NGnono.Framework.Web.Mvc
     {
         public override bool Validate(ActionExecutingContext context)
         {
-            var isEnable = ConfigManager.IsCloseService;
+            var isEnable = CachingConfig.IsCloseService;
 
             if (isEnable)
             {
@@ -187,7 +187,7 @@ namespace NGnono.Framework.Web.Mvc
 
             const string os = "iphone";
             //根据os获取不同的appkey
-            var appkey = ConfigManager.GetAppkey(os);
+            var appkey = CachingConfig.GetAppkey(os);
             var vList = new Dictionary<string, string> { { Define.ClientVersion, HttpUtility.UrlDecode(clientVersion, Encoding.UTF8) }, { Define.Uid, HttpUtility.UrlDecode(uid, Encoding.UTF8) } };
 
             var builder = new StringBuilder();
@@ -227,7 +227,7 @@ namespace NGnono.Framework.Web.Mvc
 
         public override bool Validate(ActionExecutingContext context)
         {
-            var isEnable = ConfigManager.IsEnableSign;
+            var isEnable = CachingConfig.IsEnableSign;
 
             //如果没有开启
             if (!isEnable)

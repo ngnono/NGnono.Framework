@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NGnono.Framework.Logger;
 
-namespace NGnono.Framework.Caching
+namespace NGnono.Framework.Caching.Provider
 {
     internal abstract class BaseCacheProvider : ICache
     {

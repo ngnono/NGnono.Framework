@@ -5,7 +5,7 @@ namespace NGnono.Framework.Mapping.Engines
     /// <summary>
     /// http://emitmapper.codeplex.com/
     /// </summary>
-    internal class EmitMappingEngine : IMappingEngine
+    public class EmitMappingEngine : IMappingEngine
     {
         private static readonly ObjectMapperManager EmitMapper = ObjectMapperManager.DefaultInstance;
 
@@ -17,6 +17,16 @@ namespace NGnono.Framework.Mapping.Engines
         public TTarget Map<TSource, TTarget>(TSource source, TTarget target)
         {
             return EmitMapper.GetMapper<TSource, TTarget>().Map(source, target);
+        }
+
+        public object GetEngineProvider()
+        {
+            return EmitMapper;
+        }
+
+        public string GetEngineProviderName()
+        {
+            return "EmitMapper";
         }
     }
 }

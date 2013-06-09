@@ -3,7 +3,10 @@ using NGnono.Framework.Mapping.Engines.Impl;
 
 namespace NGnono.Framework.Mapping.Engines
 {
-    public class MappingEngine : IMappingEngine
+    /// <summary>
+    /// 
+    /// </summary>
+    internal class MappingEngine : IMappingEngine
     {
         #region IMappingEngine Members
 
@@ -13,6 +16,16 @@ namespace NGnono.Framework.Mapping.Engines
         }
 
         public TTarget Map<TSource, TTarget>(TSource source, TTarget target)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public object GetEngineProvider()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string GetEngineProviderName()
         {
             throw new System.NotImplementedException();
         }

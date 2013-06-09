@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace NGnono.Framework.Mapping
+namespace NGnono.Framework.Mapping.Engines.Impl
 {
     public class ResolutionContext
     {

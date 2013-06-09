@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace NGnono.Framework.Mapping
+namespace NGnono.Framework.Mapping.Engines.Impl
 {
     public class DefaultConfigurationProvider : IConfigurationProvider
     {

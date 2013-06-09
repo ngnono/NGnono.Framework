@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using NGnono.Framework.Mapping;
 
-namespace NGnono.Framework.Mapping
+namespace NGnono.Framework.Mapping.Engines.Impl
 {
     public class PlainObjectMappingRunner : IMappingRunner
     {

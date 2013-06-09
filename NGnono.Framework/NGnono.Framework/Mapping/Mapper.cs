@@ -1,67 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using EmitMapper;
 
 namespace NGnono.Framework.Mapping
 {
-    public interface IMapper
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TTarget"></typeparam>
-        /// <param name="source"></param>
-        /// <returns></returns>
-        TTarget Map<TSource, TTarget>(TSource source);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TTarget"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="engine"></param>
-        /// <returns></returns>
-        TTarget Map<TSource, TTarget>(TSource source, IMappingEngine engine);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TTarget"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="mapper"></param>
-        /// <returns></returns>
-        TTarget Map<TSource, TTarget>(TSource source, Func<TSource, TTarget> mapper);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TTarget"></typeparam>
-        /// <param name="sourceCollection"></param>
-        /// <returns></returns>
-        IEnumerable<TTarget> Map<TSource, TTarget>(IEnumerable<TSource> sourceCollection);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TTarget"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="target"></param>
-        /// <returns></returns>
-        TTarget Map<TSource, TTarget>(TSource source, TTarget target);
-    }
-
     public sealed class Mapper : IMapper
     {
         #region fields
 
         private static readonly IMappingEngine _engine;
-        private static readonly ObjectMapperManager _emitMapper;
         private static readonly Mapper _instance;
 
         #endregion
@@ -70,8 +16,7 @@ namespace NGnono.Framework.Mapping
 
         static Mapper()
         {
-            _engine = new MappingEngine();
-            _emitMapper = ObjectMapperManager.DefaultInstance;
+            _engine = new EngineFactory().Create(null);
             _instance = new Mapper();
         }
 
@@ -118,7 +63,7 @@ namespace NGnono.Framework.Mapping
 
         public static IEnumerable<TTarget> Map<TSource, TTarget>(IEnumerable<TSource> sourceCollection)
         {
-            if (sourceCollection == null || !sourceCollection.Any())
+            if (sourceCollection == null)
                 yield break;
 
             foreach (var item in sourceCollection)
@@ -129,7 +74,7 @@ namespace NGnono.Framework.Mapping
 
         public static TTarget Map<TSource, TTarget>(TSource source, TTarget target)
         {
-            return _emitMapper.GetMapper<TSource, TTarget>().Map(source, target);
+            return _engine.Map(source, target);
         }
 
         #endregion
@@ -159,7 +104,7 @@ namespace NGnono.Framework.Mapping
         /// <returns></returns>
         TTarget IMapper.Map<TSource, TTarget>(TSource source, Func<TSource, TTarget> mapper)
         {
-            return Map<TSource, TTarget>(source, mapper);
+            return Map(source, mapper);
         }
 
         /// <summary>
@@ -184,7 +129,7 @@ namespace NGnono.Framework.Mapping
         /// <returns></returns>
         TTarget IMapper.Map<TSource, TTarget>(TSource source, TTarget target)
         {
-            return Map<TSource, TTarget>(source, target);
+            return Map(source, target);
         }
 
         /// <summary>

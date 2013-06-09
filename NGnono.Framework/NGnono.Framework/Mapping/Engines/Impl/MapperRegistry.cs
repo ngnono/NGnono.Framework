@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NGnono.Framework.Mapping
+namespace NGnono.Framework.Mapping.Engines.Impl
 {
     public static class MapperRegistry
     {

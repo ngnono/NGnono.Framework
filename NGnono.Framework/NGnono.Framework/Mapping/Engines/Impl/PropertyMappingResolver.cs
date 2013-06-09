@@ -2,9 +2,8 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using NGnono.Framework.Mapping;
 
-namespace NGnono.Framework.Mapping
+namespace NGnono.Framework.Mapping.Engines.Impl
 {
     public class PropertyMappingResolver : IMappingResolver
     {

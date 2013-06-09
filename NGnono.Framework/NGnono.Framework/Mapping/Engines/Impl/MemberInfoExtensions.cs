@@ -1,6 +1,6 @@
 ﻿using NGnono.Framework.Extension;
 
-namespace NGnono.Framework.Mapping
+namespace NGnono.Framework.Mapping.Engines.Impl
 {
     public static class MemberInfoExtensions
     {

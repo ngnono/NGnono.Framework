@@ -1,5 +1,4 @@
-﻿using EFCachingProvider;
-using EFProviderWrapperToolkit;
+﻿using EFProviderWrapperToolkit;
 using EFTracingProvider;
 using System;
 using System.Configuration;
@@ -125,8 +124,6 @@ namespace NGnono.Framework.Data.EF
 
             switch (key)
             {
-                case EfCacheingConnection:
-                    return new EFCachingConnection();
                 default:
                     return new EFTracingConnection();
             }

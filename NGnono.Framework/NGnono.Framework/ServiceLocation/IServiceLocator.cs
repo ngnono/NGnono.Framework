@@ -102,6 +102,13 @@ namespace NGnono.Framework.ServiceLocation
         /// </summary>
         /// <param name="type">服务类型</param>
         /// <returns></returns>
+        object Resolve(Type type, string key);
+
+        /// <summary>
+        /// 获取服务实例
+        /// </summary>
+        /// <param name="type">服务类型</param>
+        /// <returns></returns>
         IEnumerable<object> ResolveAll(Type type);
 
         bool IsRegistered(Type typeToCheck);

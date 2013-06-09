@@ -104,6 +104,11 @@ namespace NGnono.Framework.ServiceLocation.Adapter
             return this._kernel.Get(type);
         }
 
+        protected override object DoResolve(Type type, string key)
+        {
+            return this._kernel.Get(type, key);
+        }
+
         /// <summary>
         /// 获取服务实例
         /// </summary>
@@ -116,12 +121,16 @@ namespace NGnono.Framework.ServiceLocation.Adapter
 
         protected override bool DoIsRegistered(Type typeToCheck)
         {
-            throw new NotImplementedException();
+            var obj = _kernel.TryGet(typeToCheck);
+
+            return obj != null;
         }
 
         protected override bool DoIsRegistered(Type typeToCheck, string nameToCheck)
         {
-            throw new NotImplementedException();
+            var obj = _kernel.TryGet(typeToCheck, nameToCheck);
+
+            return obj != null;
         }
 
         #endregion

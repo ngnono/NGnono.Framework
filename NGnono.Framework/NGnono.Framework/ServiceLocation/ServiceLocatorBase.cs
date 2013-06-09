@@ -137,6 +137,16 @@ namespace NGnono.Framework.ServiceLocation
             return instance;
         }
 
+        public object Resolve(Type type, string key)
+        {
+            var args = (String.Format("key:{0},type:{1}", key, type));
+            OnResolving(new ServiceEventArgs(args));
+            var instance = DoResolve(type, key);
+            OnResolved(new ServiceEventArgs(args));
+
+            return instance;
+        }
+
         /// <summary>
         /// 获取服务实例
         /// </summary>
@@ -203,6 +213,14 @@ namespace NGnono.Framework.ServiceLocation
         /// <param name="type">类型</param>
         /// <returns></returns>
         protected abstract object DoResolve(Type type);
+
+        /// <summary>
+        /// 获取服务实例
+        /// </summary>
+        /// <param name="type">类型</param>
+        /// <param name="key">给定的名称获取服务实例</param>
+        /// <returns></returns>
+        protected abstract object DoResolve(Type type, string key);
 
         /// <summary>
         /// 获取服务实例

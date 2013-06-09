@@ -64,6 +64,11 @@ namespace NGnono.Framework.ServiceLocation.Adapter
             throw new NotImplementedException();
         }
 
+        protected override object DoResolve(Type type, string key)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 获取服务实例
         /// </summary>

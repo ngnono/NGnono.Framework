@@ -13,8 +13,15 @@ namespace NGnono.Framework.Data.EF
 
     public class UnitOfWork : IUnitOfWork
     {
+        private bool _isDisposed;
+
         public DbContext Context { get; set; }
         // public DbTransaction Transaction { get; set; }
+
+        ~UnitOfWork()
+        {
+            Dispose(false);
+        }
 
         public void Commit()
         {
@@ -33,16 +40,29 @@ namespace NGnono.Framework.Data.EF
 
         public void Dispose()
         {
-            if (Context != null)
-            {
-                //if (Transaction != null)
-                //{
-                //    Transaction.Dispose();
-                //}
+            Dispose(true);
+            //.NET Framework 类库
+            // GC..::.SuppressFinalize 方法 
+            //请求系统不要调用指定对象的终结器。
+            GC.SuppressFinalize(this);
+        }
 
-                //Transaction = null;
-                Context.Dispose();
-                Context = null;
+        protected virtual void Dispose(bool isDisposing)
+        {
+            if (!_isDisposed)
+            {
+                if (isDisposing)
+                {
+                    // Release managed resources
+                    if (Context != null)
+                    {
+                        Context.Dispose();
+                        Context = null;
+                    }
+                }
+
+                // Release unmanaged resources
+                _isDisposed = true;
             }
         }
     }

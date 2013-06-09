@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using NGnono.Framework.Data.EF;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Web;
 using System.Web.Mvc;
-using System.Linq;
-using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
-using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using NGnono.Framework.Data.EF;
 
 namespace NGnono.Framework.ServiceLocation.Adapter
 {
@@ -41,19 +40,40 @@ namespace NGnono.Framework.ServiceLocation.Adapter
             }
         }
 
-        public object GetService(Type serviceType)
+
+        protected virtual bool IsChildContainerType(Type serviceType)
         {
             if (typeof(IController).IsAssignableFrom(serviceType))
             {
-                return ChildContainer.Resolve(serviceType);
+                return true;
             }
 
             if (typeof(IUnitOfWork).IsAssignableFrom(serviceType))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public object GetService(Type serviceType)
+        {
+            if (IsChildContainerType(serviceType))
             {
                 return ChildContainer.Resolve(serviceType);
             }
 
             return IsRegistered(serviceType) ? ChildContainer.Resolve(serviceType) : null;
+        }
+
+        public object GetService(Type serviceType, string key)
+        {
+            if (IsChildContainerType(serviceType))
+            {
+                return ChildContainer.Resolve(serviceType, key);
+            }
+
+            return IsRegistered(serviceType, key) ? ChildContainer.Resolve(serviceType, key) : null;
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
@@ -91,19 +111,26 @@ namespace NGnono.Framework.ServiceLocation.Adapter
                 if (childContainer == null)
                     childContainer = _container;
 
-
                 return childContainer;
             }
         }
 
-        public static void DisposeOfChildContainer()
+        public static void DisposeOfHttpChildContainer()
         {
-            var childContainer = HttpContext.Current.Items[HttpContextKey] as IUnityContainer;
-
-            if (childContainer != null)
+            if (HttpContext.Current != null)
             {
-                childContainer.Dispose();
+                var childContainer = HttpContext.Current.Items[HttpContextKey] as IUnityContainer;
+
+                if (childContainer != null)
+                {
+                    childContainer.Dispose();
+                }
             }
+            else
+            {
+
+            }
+
         }
 
         protected override void DoRegister<TService, TType>(string key)
@@ -117,6 +144,11 @@ namespace NGnono.Framework.ServiceLocation.Adapter
         }
 
         protected override object DoResolve(Type type)
+        {
+            return GetService(type);
+        }
+
+        protected override object DoResolve(Type type, string key)
         {
             return GetService(type);
         }
@@ -176,7 +208,7 @@ namespace NGnono.Framework.ServiceLocation.Adapter
     }
 
 
-    // [assembly: PreApplicationStartMethod(typeof(Yintai.Hangzhou.WebSupport.Ioc.PreApplicationStartCode), "PreStart")]
+    //[assembly: PreApplicationStartMethod(typeof(PreApplicationStartCode), "PreStart")]
     public class PreApplicationStartCode
     {
         private static bool _isStarting;
@@ -196,7 +228,7 @@ namespace NGnono.Framework.ServiceLocation.Adapter
     {
         public void Init(HttpApplication context)
         {
-            context.EndRequest += (sender, e) => PerRequestUnityServiceLocator.DisposeOfChildContainer();
+            context.EndRequest += (sender, e) => PerRequestUnityServiceLocator.DisposeOfHttpChildContainer();
         }
 
         public void Dispose()

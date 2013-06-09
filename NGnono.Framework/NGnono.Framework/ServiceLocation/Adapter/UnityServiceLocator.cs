@@ -31,7 +31,7 @@ namespace NGnono.Framework.ServiceLocation.Adapter
                     var configuration = (UnityConfigurationSection)ConfigurationManager.GetSection(UnityConfigurationSection.SectionName);
                     configuration.Configure(container, "defaultContainer");
                 }
-                catch
+                catch(Exception ex)
                 {
                     throw;
                 }
@@ -115,6 +115,11 @@ namespace NGnono.Framework.ServiceLocation.Adapter
             return _container.Resolve(type);
         }
 
+        protected override object DoResolve(Type type, string key)
+        {
+            return _container.Resolve(type, key);
+        }
+
         /// <summary>
         /// 获取服务实例
         /// </summary>
@@ -127,7 +132,7 @@ namespace NGnono.Framework.ServiceLocation.Adapter
 
         protected override bool DoIsRegistered(Type typeToCheck)
         {
-            return DoIsRegistered(typeToCheck, null);
+            return _container.IsRegistered(typeToCheck);
         }
 
         protected override bool DoIsRegistered(Type typeToCheck, string nameToCheck)

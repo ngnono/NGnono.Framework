@@ -7,21 +7,29 @@ namespace NGnono.Framework.Data.EF
     {
         void Commit();
 
-        DbContext Context { get; set; }
-        // DbTransaction Transaction { get; set; }
+        /// <summary>
+        /// 释放
+        /// </summary>
+        void Close();
     }
 
-    public class UnitOfWork : IUnitOfWork
+    public abstract class EfUnitOfWork : IUnitOfWork
     {
         private bool _isDisposed;
 
-        public DbContext Context { get; set; }
-        // public DbTransaction Transaction { get; set; }
-
-        ~UnitOfWork()
+        protected EfUnitOfWork(DbContext dbContext)
         {
-            Dispose(false);
+            Context = dbContext;
         }
+
+        public DbContext Context { get; set; }
+
+        public void Close()
+        {
+            Dispose();
+        }
+
+        // public DbTransaction Transaction { get; set; }
 
         public void Commit()
         {

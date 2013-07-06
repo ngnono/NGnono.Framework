@@ -9,7 +9,8 @@ namespace NGnono.Framework.Data.EF
     /// IRepository接口
     /// </summary>
     /// <typeparam name="T">泛型实体</typeparam>
-    public interface IEFRepository<T> where T : BaseEntity
+    /// <typeparam name="TKey"></typeparam>
+    public interface IEFRepository<T, in TKey> : IRepository<T, TKey> where T : BaseEntity
     {
         /// <summary>        
         /// Get the total objects count.        

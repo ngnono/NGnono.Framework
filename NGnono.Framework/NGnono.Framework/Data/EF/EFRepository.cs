@@ -17,7 +17,7 @@ namespace NGnono.Framework.Data.EF
     /// Repository
     /// </summary>
     /// <typeparam name="T">泛型实体</typeparam>
-    public abstract class EFRepository<T> : IEFRepository<T> where T : BaseEntity
+    public class EFRepository<T, TKey> : RepositoryBase<T, TKey>, IEFRepository<T, TKey> where T : BaseEntity
     {
         #region fields
 
@@ -25,8 +25,6 @@ namespace NGnono.Framework.Data.EF
         /// CmsContext
         /// </summary>
         private readonly DbContext _context;
-
-        private readonly IUnitOfWork _unitOfWork;
 
         /// <summary>
         /// DbSet
@@ -49,20 +47,9 @@ namespace NGnono.Framework.Data.EF
         /// </summary>
         /// <param name="context">传入CmsContext</param>
         protected EFRepository(DbContext context)
-            : this(context, ServiceLocator.Current.Resolve<IUnitOfWork>())
         {
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        /// <param name="context">传入CmsContext</param>
-        /// <param name="unitOfWork"></param>
-        protected EFRepository(DbContext context, IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-            _context = GetContext(_unitOfWork, context);
-            _dbset = GetContext(_unitOfWork, context).Set<T>();
+            _context = context;
+            _dbset = context.Set<T>();
         }
 
         #endregion
@@ -71,30 +58,12 @@ namespace NGnono.Framework.Data.EF
 
         public DbContext DbContext
         {
-            get { return _unitOfWork.Context; }
+            get { return _context; }
         }
 
         #endregion
 
         #region methods
-
-        private static DbContext GetContext(IUnitOfWork unitOfWork, DbContext context)
-        {
-            if (unitOfWork.Context == null)
-            {
-                unitOfWork.Context = context;
-
-                //var o = ((IObjectContextAdapter)unitOfWork.Context).ObjectContext.Connection;
-                //if (o.State != ConnectionState.Open)
-                //{
-                //    o.Open();
-                //}
-
-                //unitOfWork.Transaction = o.BeginTransaction();
-            }
-
-            return unitOfWork.Context;
-        }
 
         #endregion
 
@@ -490,5 +459,15 @@ namespace NGnono.Framework.Data.EF
         }
 
         #endregion
+
+        public override IEnumerable<T> FindAll()
+        {
+            return GetAll();
+        }
+
+        public override T GetItem(TKey key)
+        {
+            return Find(key);
+        }
     }
 }

@@ -112,6 +112,8 @@
     <Compile Include="Data\EF\IEFRepository.cs" />
     <Compile Include="Data\EF\IUnitOfWork.cs" />
     <Compile Include="Data\EF\PredicateBuilder.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\RepositoryBase.cs" />
     <Compile Include="Define.cs" />
     <Compile Include="DefineRestfulMethod.cs" />
     <Compile Include="ExceptionUtils.cs" />

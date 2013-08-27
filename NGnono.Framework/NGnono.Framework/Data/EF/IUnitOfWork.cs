@@ -22,6 +22,11 @@ namespace NGnono.Framework.Data.EF
             Context = dbContext;
         }
 
+        ~EfUnitOfWork()
+        {
+            Dispose(false);
+        }
+
         public DbContext Context { get; set; }
 
         public void Close()
@@ -62,16 +67,19 @@ namespace NGnono.Framework.Data.EF
                 if (isDisposing)
                 {
                     // Release managed resources
-                    if (Context != null)
-                    {
-                        Context.Dispose();
-                        Context = null;
-                    }
                 }
 
                 // Release unmanaged resources
+                if (Context != null)
+                {
+                    Context.Dispose();
+                    Context = null;
+                }
+
                 _isDisposed = true;
             }
         }
+
+
     }
 }

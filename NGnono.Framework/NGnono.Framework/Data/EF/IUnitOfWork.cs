@@ -20,6 +20,7 @@ namespace NGnono.Framework.Data.EF
         protected EfUnitOfWork(DbContext dbContext)
         {
             Context = dbContext;
+            _isDisposed = false;
         }
 
         ~EfUnitOfWork()
@@ -79,7 +80,5 @@ namespace NGnono.Framework.Data.EF
                 _isDisposed = true;
             }
         }
-
-
     }
 }

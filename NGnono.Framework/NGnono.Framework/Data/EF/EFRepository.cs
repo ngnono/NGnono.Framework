@@ -1,4 +1,7 @@
 ﻿using LinqKit;
+using NGnono.Framework.Logger;
+using NGnono.Framework.Mapping;
+using NGnono.Framework.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,10 +9,6 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Expressions;
-using NGnono.Framework.Logger;
-using NGnono.Framework.Mapping;
-using NGnono.Framework.Models;
-using NGnono.Framework.ServiceLocation;
 
 namespace NGnono.Framework.Data.EF
 {
@@ -17,6 +16,7 @@ namespace NGnono.Framework.Data.EF
     /// Repository
     /// </summary>
     /// <typeparam name="T">泛型实体</typeparam>
+    /// <typeparam name="TKey">key type</typeparam>
     public class EFRepository<T, TKey> : RepositoryBase<T, TKey>, IEFRepository<T, TKey> where T : BaseEntity
     {
         #region fields

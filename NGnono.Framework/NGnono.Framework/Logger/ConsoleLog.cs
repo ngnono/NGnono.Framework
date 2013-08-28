@@ -2,6 +2,9 @@ using System;
 
 namespace NGnono.Framework.Logger
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ConsoleLog : ILog
     {
         #region Implementation of ILog
@@ -11,15 +14,6 @@ namespace NGnono.Framework.Logger
         /// </summary>
         /// <param name="obj"></param>
         public void Info(object obj)
-        {
-            Console.WriteLine(obj);
-        }
-
-        /// <summary>
-        /// “Ï≥£
-        /// </summary>
-        /// <param name="obj"></param>
-        public void Exception(object obj)
         {
             Console.WriteLine(obj);
         }
@@ -47,6 +41,11 @@ namespace NGnono.Framework.Logger
         /// </summary>
         /// <param name="obj"></param>
         public void Error(object obj)
+        {
+            Console.WriteLine(obj);
+        }
+
+        public void Fatal(object obj)
         {
             Console.WriteLine(obj);
         }

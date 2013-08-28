@@ -1,5 +1,8 @@
 namespace NGnono.Framework.Logger
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ILog
     {
         /// <summary>
@@ -7,13 +10,6 @@ namespace NGnono.Framework.Logger
         /// </summary>
         /// <param name="obj"></param>
         void Info(object obj);
-
-        /// <summary>
-        /// 异常
-        /// </summary>
-        /// <param name="obj"></param>
-        [System.Obsolete("请使用Error方法")]
-        void Exception(object obj);
 
         /// <summary>
         /// 调试信息
@@ -32,5 +28,11 @@ namespace NGnono.Framework.Logger
         /// </summary>
         /// <param name="obj"></param>
         void Error(object obj);
+
+        /// <summary>
+        /// 致命的
+        /// </summary>
+        /// <param name="obj"></param>
+        void Fatal(object obj);
     }
 }

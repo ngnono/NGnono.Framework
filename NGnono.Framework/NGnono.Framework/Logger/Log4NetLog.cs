@@ -1,12 +1,16 @@
 ﻿[assembly: log4net.Config.XmlConfigurator(ConfigFile = @"Configurations\Log4Net.config", Watch = true)]
 namespace NGnono.Framework.Logger
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Log4NetLog : ILog
     {
         private static readonly log4net.ILog _error = log4net.LogManager.GetLogger("ExceptionLogger");
         private static readonly log4net.ILog _info = log4net.LogManager.GetLogger("InfoLogger");
         private static readonly log4net.ILog _debug = log4net.LogManager.GetLogger("DebugLogger");
         private static readonly log4net.ILog _warn = log4net.LogManager.GetLogger("WarnLogger");
+        private static readonly log4net.ILog _fatal = log4net.LogManager.GetLogger("FatalLogger");
 
         #region Implementation of ILog
 
@@ -53,6 +57,15 @@ namespace NGnono.Framework.Logger
         public void Error(object obj)
         {
             _error.Error(obj);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        public void Fatal(object obj)
+        {
+            _fatal.Fatal(obj);
         }
 
         #endregion

@@ -3,8 +3,14 @@ using System.Data.Entity;
 
 namespace NGnono.Framework.Data.EF
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IUnitOfWork : IDisposable
     {
+        /// <summary>
+        /// 
+        /// </summary>
         void Commit();
 
         /// <summary>
@@ -13,6 +19,9 @@ namespace NGnono.Framework.Data.EF
         void Close();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class EfUnitOfWork : IUnitOfWork
     {
         private bool _isDisposed;
@@ -28,6 +37,9 @@ namespace NGnono.Framework.Data.EF
             Dispose(false);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public DbContext Context { get; set; }
 
         public void Close()

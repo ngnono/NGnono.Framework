@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGnono.Framework.Tools.Imag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGnono.Framework.Tools.ImageTools.Test", "NGnono.Framework.Tools.ImageTools.Test\NGnono.Framework.Tools.ImageTools.Test.csproj", "{40401C2F-0D7B-47BC-9D82-FABD242D8C70}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6422C1EE-6CC2-4A47-B136-2B18F978F750}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{7F6A7D89-150F-4C6D-AA6C-41B83628F723}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGnono.Framework.Test", "NGnono.Framework.Test\NGnono.Framework.Test.csproj", "{80EEB8EC-7A54-422A-B54B-D4814BF98CBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +33,17 @@ Global
 		{40401C2F-0D7B-47BC-9D82-FABD242D8C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40401C2F-0D7B-47BC-9D82-FABD242D8C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40401C2F-0D7B-47BC-9D82-FABD242D8C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80EEB8EC-7A54-422A-B54B-D4814BF98CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80EEB8EC-7A54-422A-B54B-D4814BF98CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80EEB8EC-7A54-422A-B54B-D4814BF98CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80EEB8EC-7A54-422A-B54B-D4814BF98CBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40401C2F-0D7B-47BC-9D82-FABD242D8C70} = {6422C1EE-6CC2-4A47-B136-2B18F978F750}
+		{80EEB8EC-7A54-422A-B54B-D4814BF98CBA} = {6422C1EE-6CC2-4A47-B136-2B18F978F750}
+		{8CE466EC-9511-48CD-A510-C638083C9E8D} = {7F6A7D89-150F-4C6D-AA6C-41B83628F723}
 	EndGlobalSection
 EndGlobal

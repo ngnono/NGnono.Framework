@@ -1,4 +1,5 @@
-﻿using EFProviderWrapperToolkit;
+﻿using System.Data.Objects;
+using EFProviderWrapperToolkit;
 using EFTracingProvider;
 using System;
 using System.Configuration;
@@ -7,6 +8,43 @@ using System.Linq;
 
 namespace NGnono.Framework.Data.EF
 {
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class EFTracingExtensionMethods
+    {
+        /// <summary>
+        /// Gets the instance of the wrapped <see cref="EFTracingConnection" /> from <see cref="ObjectContext"/>.
+        /// </summary>
+        /// <param name="context">The object context.</param>
+        /// <returns>Instance of <see cref="EFTracingConnection"/>.</returns>
+        public static EFTracingConnection GetTracingConnection(this ObjectContext context)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException("context");
+            }
+
+            return GetTracingConnection(context.Connection);
+        }
+
+        /// <summary>
+        /// Gets the instance of the wrapped <see cref="EFTracingConnection" /> from <see cref="DbConnection"/>.
+        /// </summary>
+        /// <param name="connection">The connection object.</param>
+        /// <returns>Instance of <see cref="EFTracingConnection"/>.</returns>
+        public static EFTracingConnection GetTracingConnection(this DbConnection connection)
+        {
+            if (connection == null)
+            {
+                throw new ArgumentNullException("connection");
+            }
+
+            return connection.UnwrapConnection<EFTracingConnection>();
+        }
+    }
+
     /// <summary>
     /// CLR Version: 4.0.30319.269
     /// NameSpace: Yintai.Architecture.PMS.Data
@@ -17,6 +55,9 @@ namespace NGnono.Framework.Data.EF
     /// </summary>
     public class EFTracingUtil
     {
+
+
+
         public static DbConnection GetConnection(string nameOrConnectionString)
         {
             try

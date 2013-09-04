@@ -46,7 +46,7 @@ namespace NGnono.Framework.Data.EF
         /// 构造函数
         /// </summary>
         /// <param name="context">传入CmsContext</param>
-        protected EFRepository(DbContext context)
+        public EFRepository(DbContext context)
         {
             _context = context;
             _dbset = context.Set<T>();

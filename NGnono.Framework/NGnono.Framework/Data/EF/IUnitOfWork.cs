@@ -22,17 +22,17 @@ namespace NGnono.Framework.Data.EF
     /// <summary>
     /// 
     /// </summary>
-    public abstract class EfUnitOfWork : IUnitOfWork
+    public abstract class EFUnitOfWork : IUnitOfWork
     {
         private bool _isDisposed;
 
-        protected EfUnitOfWork(DbContext dbContext)
+        protected EFUnitOfWork(DbContext dbContext)
         {
-            Context = dbContext;
+            DbContext = dbContext;
             _isDisposed = false;
         }
 
-        ~EfUnitOfWork()
+        ~EFUnitOfWork()
         {
             Dispose(false);
         }
@@ -40,7 +40,7 @@ namespace NGnono.Framework.Data.EF
         /// <summary>
         /// 
         /// </summary>
-        public DbContext Context { get; set; }
+        public DbContext DbContext { get; set; }
 
         public void Close()
         {
@@ -51,9 +51,9 @@ namespace NGnono.Framework.Data.EF
 
         public void Commit()
         {
-            if (Context != null)
+            if (DbContext != null)
             {
-                Context.SaveChanges();
+                DbContext.SaveChanges();
                 //if (Transaction != null)
                 //{
                 //    if (Transaction.Connection != null)
@@ -83,10 +83,10 @@ namespace NGnono.Framework.Data.EF
                 }
 
                 // Release unmanaged resources
-                if (Context != null)
+                if (DbContext != null)
                 {
-                    Context.Dispose();
-                    Context = null;
+                    DbContext.Dispose();
+                    //Context = null;
                 }
 
                 _isDisposed = true;

@@ -14,7 +14,7 @@ namespace NGnono.Framework
         string[] Generate(string keyWord);
 
         /// <summary>
-        /// 生成唯一KEY
+        /// 生成KEY
         /// </summary>
         /// <param name="keyWord"></param>
         /// <returns></returns>

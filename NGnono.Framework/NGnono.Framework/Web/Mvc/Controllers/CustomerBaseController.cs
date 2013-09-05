@@ -4,34 +4,18 @@ using System.Web.Mvc;
 
 namespace NGnono.Framework.Web.Mvc.Controllers
 {
-
-    public abstract class BackAdminBaseController : BaseController
+    /// <summary>
+    /// 
+    /// </summary>
+    public abstract class BackAdminBaseController : StandardBaseController
     {
     }
 
     /// <summary>
-    /// 要求必须登录的 controller
+    ///  controller
     /// </summary>
-    public abstract class CustomerBaseController : BaseController
+    public abstract class StandardBaseController : BaseController
     {
-        ///// <summary>
-        ///// 当前登录用户
-        ///// </summary>
-        //private WebSiteUser _currentUser;
-
-        ///// <summary>
-        ///// Gets or sets AuthenticationService.
-        ///// </summary>
-        //public IAuthenticationService AuthenticationService { get; set; }
-
-        ///// <summary>
-        ///// 获取当前登录用户
-        ///// </summary>
-        //public WebSiteUser CurrentUser
-        //{
-        //    get { return this._currentUser ?? (this._currentUser = this.AuthenticationService.GetCurrentUser(base.HttpContext)); }
-        //}
-
         /// <summary>
         /// 禁用 Response
         /// </summary>

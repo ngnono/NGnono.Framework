@@ -1,6 +1,8 @@
 using NGnono.Framework.Logger;
 using NGnono.Framework.ServiceLocation;
 using NGnono.Framework.Web.Mvc.Attributes;
+using System;
+using System.Web;
 
 namespace NGnono.Framework.Web.Mvc.Controllers
 {
@@ -17,7 +19,7 @@ namespace NGnono.Framework.Web.Mvc.Controllers
 
         #region properties
 
-        public ILog Logger { get; private set; }
+        protected ILog Logger { get; set; }
 
         #endregion
 
@@ -45,5 +47,15 @@ namespace NGnono.Framework.Web.Mvc.Controllers
         }
 
         #endregion
+
+        /// <summary>
+        /// url ½âÂë
+        /// </summary>
+        /// <param name="encodeString"></param>
+        /// <returns></returns>
+        public static string UrlDecode(string encodeString)
+        {
+            return String.IsNullOrWhiteSpace(encodeString) ? String.Empty : HttpUtility.UrlDecode(encodeString);
+        }
     }
 }

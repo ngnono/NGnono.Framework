@@ -5,13 +5,6 @@ using System.Web.Mvc;
 namespace NGnono.Framework.Web.Mvc.Controllers
 {
     /// <summary>
-    /// 
-    /// </summary>
-    public abstract class BackAdminBaseController : StandardBaseController
-    {
-    }
-
-    /// <summary>
     ///  controller
     /// </summary>
     public abstract class StandardBaseController : BaseController

@@ -136,6 +136,7 @@
     <Compile Include="Extension\JsonExtension.cs" />
     <Compile Include="Extension\MemberInfoExtension.cs" />
     <Compile Include="Extension\ObjectExtension.cs" />
+    <Compile Include="Extension\StringExtension.cs" />
     <Compile Include="GenerateUnique.cs" />
     <Compile Include="Helper\CoordinatePositioningHelper.cs" />
     <Compile Include="Helper\Util.cs" />
@@ -203,7 +204,7 @@
     <Compile Include="Web\Mvc\Binders\ModelBinderBase.cs" />
     <Compile Include="Web\Mvc\Binders\UseBinderAttribute.cs" />
     <Compile Include="Web\Mvc\Controllers\BaseController.cs" />
-    <Compile Include="Web\Mvc\Controllers\CustomerBaseController.cs" />
+    <Compile Include="Web\Mvc\Controllers\StandardBaseController.cs" />
     <Compile Include="Web\Mvc\Controllers\RestfulController.cs" />
     <Compile Include="Web\Mvc\Ioc\IocDependencyResolver.cs" />
     <Compile Include="Web\Mvc\IRequestParameterHandler.cs" />

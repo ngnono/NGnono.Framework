@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace NGnono.Framework.Extension
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class MemberInfoExtension
     {
         #region fields

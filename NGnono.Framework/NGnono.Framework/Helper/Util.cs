@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace NGnono.Framework.Helper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UtilHelper
     {
         /// <summary>

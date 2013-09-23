@@ -13,11 +13,22 @@ namespace NGnono.Framework.Security.Cryptography.Hash
     /// </summary>
     public static class HashHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static MD5 MD5(string input)
         {
             return MD5(input, false);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="igonreCase"></param>
+        /// <returns></returns>
         public static MD5 MD5(string input, bool igonreCase)
         {
             return new MD5(input, igonreCase);

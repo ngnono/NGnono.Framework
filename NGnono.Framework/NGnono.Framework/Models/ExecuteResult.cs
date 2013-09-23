@@ -3,16 +3,19 @@
 namespace NGnono.Framework.Models
 {
     /// <summary>
-    /// 执行结果
+    ///     执行结果
     /// </summary>
     [DataContract(Name = "result")]
     public class ExecuteResult
     {
         #region .ctor
 
+        /// <summary>
+        /// </summary>
         public ExecuteResult()
         {
-            this.StatusCode = StatusCode.Success;
+            StatusCode = StatusCode.Success;
+            Message = "ok";
         }
 
         #endregion
@@ -20,23 +23,22 @@ namespace NGnono.Framework.Models
         #region properties
 
         /// <summary>
-        /// 状态码
+        ///     状态码
         /// </summary>
         [DataMember(Name = "statusCode", Order = 2)]
         public StatusCode StatusCode { get; set; }
 
         /// <summary>
-        /// 是否成功
+        ///     是否成功
         /// </summary>
         [DataMember(Name = "isSuccessful", Order = 1)]
         public bool IsSuccess
         {
             get { return StatusCode == StatusCode.Success; }
-            set { }
         }
 
         /// <summary>
-        ///  信息
+        ///     信息
         /// </summary>
         [DataMember(Name = "message", Order = 3)]
         public string Message { get; set; }
@@ -45,7 +47,7 @@ namespace NGnono.Framework.Models
     }
 
     /// <summary>
-    /// 泛型的执行结果
+    ///     泛型的执行结果
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [DataContract(Name = "result")]
@@ -57,11 +59,18 @@ namespace NGnono.Framework.Models
 
         #region .ctor
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
         public ExecuteResult(T data)
         {
             Data = data;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ExecuteResult()
             : this(default(T))
         {
@@ -72,7 +81,7 @@ namespace NGnono.Framework.Models
         #region properties
 
         /// <summary>
-        /// 返回数据
+        ///     返回数据
         /// </summary>
         [DataMember(Name = "data")]
         public T Data { get; set; }

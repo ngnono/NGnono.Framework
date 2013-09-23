@@ -105,7 +105,7 @@ namespace NGnono.Framework.Utility
                 return str;
             }
 
-            return str.Replace("%2B", "+");
+            return str.Replace("%2B", "+").Replace("%2b", "+");
         }
 
         public static string Encrypt(UserIdSessionData data)

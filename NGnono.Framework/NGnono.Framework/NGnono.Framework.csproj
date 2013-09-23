@@ -184,6 +184,7 @@
     <Compile Include="Security\Cryptography\Hash\HashHelper.cs" />
     <Compile Include="Security\Cryptography\Hash\MD5.cs" />
     <Compile Include="Security\Cryptography\Hash\SHA.cs" />
+    <Compile Include="Security\Cryptography\PwdSecurityHelper.cs" />
     <Compile Include="ServiceLocation\Adapter\PerRequestUnityServiceLocator.cs" />
     <Compile Include="ServiceLocation\Adapter\NinjectServiceLocator.cs" />
     <Compile Include="ServiceLocation\Adapter\UnityServiceLocator.cs" />
@@ -196,7 +197,7 @@
     <Compile Include="Utility\HtmlToText.cs" />
     <Compile Include="Utility\Utils.cs" />
     <Compile Include="Web\HttpModules\GlobalErrorHandlerModule.cs" />
-    <Compile Include="Web\HttpModules\RequestLogginHttpModule.cs" />
+    <Compile Include="Web\HttpModules\RequestLoggingHttpModule.cs" />
     <Compile Include="Web\Mvc\ActionResults\RestfulResult.cs" />
     <Compile Include="Web\Mvc\Attributes\DataServiceAttribute.cs" />
     <Compile Include="Web\Mvc\Attributes\DefaultHandleErrorAttribute.cs" />

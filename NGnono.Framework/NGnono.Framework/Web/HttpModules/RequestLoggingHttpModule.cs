@@ -1,11 +1,9 @@
-﻿using System;
+﻿using NGnono.Framework.Logger;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Diagnostics;
 using System.Text;
 using System.Web;
-using NGnono.Framework.Extension;
-using NGnono.Framework.Logger;
 
 namespace NGnono.Framework.Web.HttpModules
 {
@@ -20,11 +18,11 @@ namespace NGnono.Framework.Web.HttpModules
     /// <summary>
     /// 请求记录日志
     /// </summary>
-    public class RequestLogginHttpModule : IHttpModule
+    public class RequestLoggingHttpModule : IHttpModule
     {
         #region fileds
 
-        private static readonly ILog _log = LoggerManager.Current();
+        private static readonly ILog Log = LoggerManager.Current();
 
         #endregion
 
@@ -37,16 +35,16 @@ namespace NGnono.Framework.Web.HttpModules
 
         public void Init(HttpApplication context)
         {
-            context.BeginRequest += new System.EventHandler(context_BeginRequest);
+            context.BeginRequest += context_BeginRequest;
         }
 
-        void context_BeginRequest(object sender, System.EventArgs e)
+        static void context_BeginRequest(object sender, EventArgs e)
         {
             var context = sender as HttpApplication;
 
             if (context == null)
             {
-                _log.Error("RequestLogginHttpModule Parameter context is null");
+                Log.Error("RequestLoggingHttpModule Parameter context is null");
                 return;
             }
             //string form = context.Context.Request.Form.ToJson();
@@ -88,11 +86,16 @@ namespace NGnono.Framework.Web.HttpModules
                 sb.AppendLine();
             }
 
-            _log.Info(sb.ToString());
+            Log.Info(sb.ToString());
         }
 
         #region helper
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         public Dictionary<string, string> NameValueCollectionToDictionary(NameValueCollection collection)
         {
             var dict = new Dictionary<string, string>();

@@ -13,6 +13,9 @@ using NGnono.Framework.Utility;
 
 namespace NGnono.Framework.Web.HttpModules
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class GlobalErrorHandlerModule : IHttpModule
     {
         #region fields
@@ -103,27 +106,24 @@ namespace NGnono.Framework.Web.HttpModules
         /// <param name="e"></param>
         private static void OnError(object sender, EventArgs e)
         {
-            HttpContext context = HttpContext.Current;
+            var context = HttpContext.Current;
             if (context == null) return;
 
             var exception = context.Server.GetLastError();
             if (exception == null) return;
 
 
-            string message = exception.Message;
+            //var httpException = exception as HttpException;
 
-            var httpException = exception as HttpException;
-
-            int statusCode = 404;
-            if (httpException != null)
-            {
-                statusCode = httpException.GetHttpCode();
-            }
+            //if (httpException != null)
+            //{
+            //    httpException.GetHttpCode();
+            //}
 
             //包括记录异常的内部包含异常
             while (exception != null)
             {
-                _log.Error("Global:");
+                //_log.Error("Global:");
                 _log.Error(exception);
                 exception = exception.InnerException;
             }
@@ -139,12 +139,13 @@ namespace NGnono.Framework.Web.HttpModules
             {
                 format = String.Empty; // 如果为空，将会使用默认值
             }
-            var response = String.Empty;
-            var result = new ExecuteResult()
+            string response;
+            var result = new ExecuteResult
                              {
                                  Message = "服务器正在维护请稍后重试！",
                                  StatusCode = StatusCode.InternalServerError
                              };
+
             switch (format.ToLower())
             {
                 case Define.Json:
@@ -156,7 +157,7 @@ namespace NGnono.Framework.Web.HttpModules
                     context.Response.ContentType = "text/xml; charset=utf-8";
                     break;
                 default:
-                    response = Utils.DataContractToJson(result);
+                    response = result.Message;
                     context.Response.ContentType = "text/html; charset=utf-8";
                     break;
             }

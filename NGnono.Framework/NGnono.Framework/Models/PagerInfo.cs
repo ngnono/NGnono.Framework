@@ -74,6 +74,18 @@ namespace NGnono.Framework.Models
             TotalCount = totalCount;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="totalCount"></param>
+        /// <param name="data"></param>
+        public PagerInfo(PagerRequest request, int totalCount, IEnumerable<T> data)
+            : this(request, totalCount)
+        {
+            AddRange(data);
+        }
+
         #endregion
 
         #region properties

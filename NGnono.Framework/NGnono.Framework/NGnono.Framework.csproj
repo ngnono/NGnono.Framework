@@ -132,6 +132,7 @@
     <Compile Include="Define.cs" />
     <Compile Include="DefineRestfulMethod.cs" />
     <Compile Include="ExceptionUtils.cs" />
+    <Compile Include="Extension\DictionaryExtension.cs" />
     <Compile Include="Extension\EnumExtension.cs" />
     <Compile Include="Extension\JsonExtension.cs" />
     <Compile Include="Extension\MemberInfoExtension.cs" />

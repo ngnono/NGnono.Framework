@@ -9,6 +9,26 @@ namespace NGnono.Framework.Extension
     /// <summary>
     /// 
     /// </summary>
+    public static class EnumerableExtension
+    {
+        /// <summary>
+        /// custom Extension methods  集合a根据条件在集合b中的元素 并返回
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="other"></param>
+        /// <param name="predicate"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TOther"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<TSource> In<TSource, TOther>(this IEnumerable<TSource> source, IEnumerable<TOther> other, Func<TSource, TOther, bool> predicate)
+        {
+            return source.Where(s => other.Any(v => predicate(s, v))).ToList();
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ListExtension
     {
         /// <summary>
@@ -29,6 +49,8 @@ namespace NGnono.Framework.Extension
 
             return source;
         }
+
+
     }
 
     /// <summary>

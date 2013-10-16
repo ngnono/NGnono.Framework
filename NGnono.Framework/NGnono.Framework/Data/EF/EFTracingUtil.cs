@@ -166,8 +166,19 @@ namespace NGnono.Framework.Data.EF
             switch (key)
             {
                 default:
-                    return new EFTracingConnection();
+                    return new DbTracingConnection();
             }
+        }
+    }
+
+    /// <summary>
+    ///  解决 EFProviderWrapperToolkit Specified method is not supported
+    /// </summary>
+    public class DbTracingConnection : EFTracingConnection
+    {
+        protected override DbCommand CreateDbCommand()
+        {
+            return this.WrappedConnection.CreateCommand();
         }
     }
 }

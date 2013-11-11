@@ -32,10 +32,10 @@ namespace NGnono.Framework.Data.EF
             _isDisposed = false;
         }
 
-        ~EFUnitOfWork()
-        {
-            Dispose(false);
-        }
+        //~EFUnitOfWork()
+        //{
+        //    Dispose(false);
+        //}
 
         /// <summary>
         /// 
@@ -70,7 +70,7 @@ namespace NGnono.Framework.Data.EF
             //.NET Framework 类库
             // GC..::.SuppressFinalize 方法 
             //请求系统不要调用指定对象的终结器。
-            GC.SuppressFinalize(this);
+            //GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool isDisposing)
